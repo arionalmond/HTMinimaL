@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Send data to client</title>
+  <script>
+    function sendData() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var result = document.getElementById("result");
+
+      fetch("http://127.0.0.1:3000/jsondata", {
+        // fetch("/jsondata", { 
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name: name, email: email }),
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          result.innerHTML = data.msg;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } 
+  </script>
+</head>
+
+<body>
+  <h1 style="color: green">GFG</h1>
+  <input type="text" id="name" placeholder="Your name" />
+  <input type="email" id="email" placeholder="Email" />
+  <button onclick="sendData()">Send</button>
+  <p id="result" style="color: orange"></p>
+
+</body>
+
+</html>

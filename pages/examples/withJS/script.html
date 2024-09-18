@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Script Execution Timing</title>
+
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#async_and_defer -->
+    <script>
+        console.log('head script executed');
+    </script>
+    <script defer>
+        console.log('head defer script executed');
+    </script>
+    <script async>
+        console.log('head async script executed');
+    </script>
+</head>
+
+<body style="background-color: grey;">
+
+    <script>
+        console.log('top of body script executed');
+    </script>
+
+    <h2>Script Execution Timing Body</h2>
+    <h4 id="h4JSUpdate"></h4>
+    <h5 id="h5JSUpdate"></h5>
+
+    <script>
+        const h5JSUpdate = document.getElementById("h5JSUpdate");
+        h5JSUpdate.innerHTML = `<p>updated from local file script</p>`;
+
+        console.log('bottom of body script executed');
+    </script>
+</body>
+
+
+<footer>
+    <script>
+        console.log('top of footer script executed');
+    </script>
+
+    <h2>Script Execution Timing Footer</h2>
+
+    <script>
+        console.log('bottom of footer script executed');
+    </script>
+
+</footer>
+
+</html>
