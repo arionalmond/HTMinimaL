@@ -1,0 +1,27 @@
+<html>
+
+<body>
+    <button id="show-btn">Show/Hide</button>
+    <div id="hidden-element" style="display: none;">This element will be shown on click</div>
+
+
+    <script>
+        const showBtn = document.getElementById('show-btn');
+        const hiddenElement = document.getElementById('hidden-element');
+
+        showBtn.addEventListener('click', () => {
+            if (hiddenElement.style.display === 'none') {
+                // console.log('hiddenElement.style.display: changing to block');
+                hiddenElement.style.display = 'block';
+                return;
+            }
+            if (hiddenElement.style.display === 'block') {
+                // console.log('hiddenElement.style.display: changing to none');
+                hiddenElement.style.display = 'none';
+                return;
+            }
+        });
+    </script>
+</body>
+
+</html>
